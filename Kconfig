@@ -1,0 +1,7 @@
+menuconfig BEHAVIOR-DECK-KEY
+    bool "Zmk Stream Deck Behavior"
+    default y
+    depends on USB_DEVICE_STACK
+    depends on USB_HID_DEVICE
+    help
+        Enables the zmb stream deck behavior

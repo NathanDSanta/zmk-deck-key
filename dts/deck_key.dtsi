@@ -1,0 +1,7 @@
+/ {
+    deck_key_hid: deck_key_hid {
+        compatible = "zephyr,hid-device";
+        label = "DECK_KEY_HID";
+        status = "okay";
+    };
+};
