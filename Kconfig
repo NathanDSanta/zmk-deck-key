@@ -1,5 +1,5 @@
-menuconfig ZMK-DECK-KEY
-    bool "Zmk Stream Deck Behavior"
-    default y
-    help
-        Enables the zmk stream deck behavior
+DT_COMPAT_ZMK_DECK_KEY := zmk,behavior-deck-key
+
+config ZMK-DECK-KEY
+    bool 
+    default $(dt_compat_enabled,$(DT_COMPAT_ZMK_DECK_KEY))
