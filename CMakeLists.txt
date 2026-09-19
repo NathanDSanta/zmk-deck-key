@@ -1,6 +1,6 @@
 zephyr_library()
 
-if(CONFIG_ZMK_BEHAVIOR_DECK_KEY)
+if(CONFIG_ZMK_DECK_KEY)
 
     zephyr_library_include_directories(include)
 

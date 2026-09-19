@@ -1,9 +1,7 @@
 #pragma once
 
-#include <stddef.h>
 #include <stdint.h>
 
-int deck_key_hid_send(
-    const uint8_t *data,
-    size_t length
-);
+int deck_key_hid_init(void);
+
+int deck_key_hid_send(uint8_t event_id);
