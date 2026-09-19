@@ -7,6 +7,7 @@
 #include <zephyr/device.h>
 #include <zephyr/logging/log.h>
 
+#include <drivers/behavior.h>
 #include <zmk/behavior.h>
 
 LOG_MODULE_REGISTER(behavior_deck_key, CONFIG_ZMK_LOG_LEVEL);
