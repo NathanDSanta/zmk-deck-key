@@ -1,4 +1,6 @@
 name: zmk-deck-key
 build:
   kconfig: Kconfig
-  cmake: .
+  cmake: . 
+  settings:
+    dts_root: .
