@@ -1,4 +1,4 @@
-#include "raw_hid.h"
+#include "zmk-deck-key/raw_hid.h"
 
 #include <raw_hid/events.h>
 
