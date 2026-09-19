@@ -33,7 +33,7 @@ static int deck_key_pressed(struct zmk_behavior_binding *binding,
             binding->param1, binding->param1);
 
 
-    deck_key_report[0] = 0x33;
+    deck_key_report[0] = (uint8_t) 0x33;
 
     LOG_INF("Sending deck key index: %u", key_index);
 
