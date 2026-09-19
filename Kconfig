@@ -1,4 +1,4 @@
-CONFIG ZMK_DECK_KEY
+config ZMK_DECK_KEY
     bool "Add Stream Deck Key behavior"
     default y
     depends on RAW_HID
