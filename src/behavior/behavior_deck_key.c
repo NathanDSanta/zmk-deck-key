@@ -29,6 +29,10 @@ static int deck_key_pressed(struct zmk_behavior_binding *binding,
 
     uint8_t key_index = (uint8_t)(binding->param1 & 0xff);
 
+    LOG_INF("Deck behavior pressed: param1=%u (0x%08x)",
+            binding->param1, binding->param1);
+
+
     deck_key_report[0] = key_index;
 
     LOG_INF("Sending deck key index: %u", key_index);
