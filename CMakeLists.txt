@@ -1,10 +1,9 @@
-zephyr_library()
+if(CONFIG_RAW_HID)
+  target_sources(app PRIVATE
+    src/raw_hid.c
+  )
 
-if((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
-
-    target_sources_ifdef(CONFIG_ZMK_DECK_KEY app PRIVATE src/behaviors/behavior-deck-key.c src/hid/deck_key_hid.c)
-
-    
-    zephyr_library_include_directories(include)
-
+  target_include_directories(app PRIVATE
+    include
+  )
 endif()
