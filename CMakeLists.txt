@@ -1,6 +1,5 @@
 if(CONFIG_RAW_HID)
   target_sources(app PRIVATE
-    src/hid/raw_hid.c
     src/behavior/behavior_deck_key.c
   )
 
