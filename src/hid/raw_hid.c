@@ -7,6 +7,9 @@
 
 LOG_MODULE_REGISTER(raw_hid_hi, CONFIG_ZMK_LOG_LEVEL);
 
+#define RAW_HID_FIRST_SEND_DELAY K_SECONDS(2)
+#define RAW_HID_SEND_INTERVAL    K_SECONDS(5)
+
 /*
  * The Raw HID event contains a pointer to the data rather than copying the
  * payload. Therefore this buffer must remain valid after the event is raised.
@@ -25,20 +28,23 @@ void raw_hid_send_hi(void) {
     });
 }
 
+static void send_hi_work_handler(struct k_work *work);
+
+K_WORK_DELAYABLE_DEFINE(send_hi_work, send_hi_work_handler);
+
 static void send_hi_work_handler(struct k_work *work) {
     ARG_UNUSED(work);
 
     raw_hid_send_hi();
+    k_work_schedule(&send_hi_work, RAW_HID_SEND_INTERVAL);
 }
-
-K_WORK_DELAYABLE_DEFINE(send_hi_work, send_hi_work_handler);
 
 static int raw_hid_hi_init(void) {
     /*
      * Delay the transmission to give USB enumeration or Bluetooth
      * initialization time to complete.
      */
-    k_work_schedule(&send_hi_work, K_SECONDS(2));
+    k_work_schedule(&send_hi_work, RAW_HID_FIRST_SEND_DELAY);
 
     return 0;
 }
