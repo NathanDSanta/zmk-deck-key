@@ -1,1 +1,4 @@
 name: zmk-deck-key
+build:
+  kconfig: Kconfig
+  cmake: .
