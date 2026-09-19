@@ -53,7 +53,7 @@ static int deck_key_released(struct zmk_behavior_binding *binding,
     return ZMK_BEHAVIOR_OPAQUE;
 }
 
-static const struct zmk_behavior_driver_api deck_key_api = {
+static const struct behavior_driver_api deck_key_api = {
     .binding_pressed = deck_key_pressed,
     .binding_released = deck_key_released,
 };
